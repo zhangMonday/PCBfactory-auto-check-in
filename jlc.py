@@ -24,18 +24,6 @@ def log(msg):
     if in_summary:
         summary_logs.append(msg)  # 只收集纯消息，无时间戳
 
-def format_nickname(nickname):
-    """格式化昵称，只显示第一个字和最后一个字，中间用星号代替"""
-    if not nickname or len(nickname.strip()) == 0:
-        return "未知用户"
-    
-    nickname = nickname.strip()
-    if len(nickname) == 1:
-        return f"{nickname}*"
-    elif len(nickname) == 2:
-        return f"{nickname[0]}*"
-    else:
-        return f"{nickname[0]}{'*' * (len(nickname)-2)}{nickname[-1]}"
 
 def with_retry(func, max_retries=5, delay=1):
     """如果函数返回None或抛出异常，静默重试"""
